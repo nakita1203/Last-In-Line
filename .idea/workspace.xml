@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3b869ef1-4fc3-4c82-b7d2-276e057b71a6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Backend/config/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/config/db.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/controllers/userController.js" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/controllers/userController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/middleware/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/middleware/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/models/userModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/models/userModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/package.json" afterDir="false" />
-    </list>
+    <list default="true" id="3b869ef1-4fc3-4c82-b7d2-276e057b71a6" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -67,7 +59,7 @@
       <option name="presentableId" value="Default" />
       <updated>1730459709065</updated>
       <workItem from="1730459710123" duration="1038000" />
-      <workItem from="1731022605193" duration="2758000" />
+      <workItem from="1731022605193" duration="2913000" />
     </task>
     <servers />
   </component>
