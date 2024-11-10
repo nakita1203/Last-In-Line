@@ -7,6 +7,7 @@ const createToken = (id) => {
     return jwt.sign({ id }, process.env.JWT_SECRET);
 };
 
+// Login for existing user
 const loginUser = async (req, res) => {
     const { email, password } = req.body;
 
@@ -39,6 +40,7 @@ const loginUser = async (req, res) => {
     }
 };
 
+// Make a new account for new user
 const registerUser = async (req, res) => {
     const { name, username, email, password } = req.body;
 
