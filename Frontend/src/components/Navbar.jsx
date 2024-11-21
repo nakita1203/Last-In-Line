@@ -3,7 +3,7 @@ import Logo from '../assets/logo.png'
 import Home from '../assets/home.png'
 import GiveLove from '../assets/give-love.png'
 import ShoppingCart from '../assets/shopping-cart.png'
-
+import {Link} from "react-router-dom";
 
 export default function Navbar() {
     return (
@@ -15,15 +15,15 @@ export default function Navbar() {
 
             {/* Center: Icons */}
             <div className="absolute inset-x-0 mx-auto flex justify-center space-x-4 w-max">
-                <button className="p-2 rounded-lg hover:bg-gray-300 transition">
+                <Link to={"/"} className="p-2 rounded-lg hover:bg-gray-300 transition">
                     <img src={Home} alt="Home" className="h-6 w-6" />
-                </button>
+                </Link>
                 <button className="p-2 rounded-lg hover:bg-gray-300 transition">
                     <img src={GiveLove} alt="Donation" className="h-7 w-7" />
                 </button>
-                <button className="p-2 rounded-lg hover:bg-gray-300 transition">
+                <Link to={"/cart"} className="p-2 rounded-lg hover:bg-gray-300 transition">
                     <img src={ShoppingCart} alt="Shopping Cart" className="h-6 w-6" />
-                </button>
+                </Link>
             </div>
 
             {/* Right: Search bar and User Icon */}

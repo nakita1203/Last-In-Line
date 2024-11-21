@@ -1,0 +1,85 @@
+/* Cart Page */
+.cart-page {
+    padding: 24px;
+    background-color: #f9fafb;
+    min-height: 100vh;
+}
+
+/* Header Row */
+.header-row {
+    background-color: #ffffff;
+    padding: 16px;
+    font-weight: bold;
+    border-radius: 8px 8px 0 0;
+}
+
+/* Cart Items Styling */
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Add spacing between items */
+.cart-items .cart-item:not(:first-child) {
+    margin-top: 16px; /* Adjust spacing here */
+}
+
+/* Product Image */
+.cart-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border: 2px solid #e5e5e5;
+    border-radius: 8px;
+}
+
+/* Quantity Controls */
+.cart-item .flex {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cart-item button {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.cart-item button:hover {
+    background-color: #f5f5f5;
+}
+
+/* Remove Button */
+.cart-item button.text-red-500 {
+    color: #f87171;
+    padding: 4px 8px;
+    border: 1px solid #f87171;
+    border-radius: 4px;
+}
+
+.cart-item button.text-red-500:hover {
+    background-color: #fee2e2;
+    color: #dc2626;
+}
+
+/* Price Styling */
+.cart-item .text-lg {
+    text-align: right;
+}
+
+/* Spacing between cards */
+.cart-items {
+    margin-top: 16px;
+}

@@ -1,6 +1,9 @@
 import ItemCard from './ItemCard';
 import pavilionImage from '../assets/pavilion.png'
+import Alien from '../assets/alien.png';
+import Omen from '../assets/omen.png';
 import banner from '../assets/banner.png'
+import React from "react";
 
 export default function HomePage() {
     return (
@@ -33,11 +36,13 @@ export default function HomePage() {
                     title="Alienware X14 2022 R1"
                     condition="Rough condition"
                     price="Rp6.000.000,00"
+                    image={Alien}
                 />
                 <ItemCard
                     title="HP OMEN 2021 15"
                     condition="Can hardly open .pka files"
                     price="0.000068 BTC"
+                    image={Omen}
                 />
             </div>
         </div>

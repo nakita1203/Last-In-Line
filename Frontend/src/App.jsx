@@ -1,15 +1,18 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import HomePage from './components/HomePage';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import HomePage from "./components/HomePage";
+import CartPage from "./components/CartPage.jsx";
 
 function App() {
     return (
         <Router>
             <Navbar />
-            <Routes>
-                <Route path="/" element={<HomePage />} />
-                {/* Add more routes for other pages */}
-            </Routes>
+            <div className="mt-16">
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/cart" element={<CartPage />} />
+                </Routes>
+            </div>
         </Router>
     );
 }
