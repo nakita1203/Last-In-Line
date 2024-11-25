@@ -1,11 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import HomePage from "./components/HomePage";
-import CartPage from "./components/CartPage.jsx";
+import HomePage from "./pages/HomePage.jsx";
+import CartPage from "./pages/CartPage.jsx";
+import StoreProvider from "./context/StoreContext.jsx";
 
 function App() {
     return (
-        <Router>
+        <StoreProvider>
             <Navbar />
             <div className="mt-16">
                 <Routes>
@@ -13,7 +14,7 @@ function App() {
                     <Route path="/cart" element={<CartPage />} />
                 </Routes>
             </div>
-        </Router>
+        </StoreProvider>
     );
 }
 

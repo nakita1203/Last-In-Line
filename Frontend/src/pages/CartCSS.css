@@ -1,0 +1,108 @@
+.cart {
+    margin: 100px 0px;
+}
+
+.cart hr {
+    height: 1px;
+    background-color: #E2E2E2;
+    border: none;
+}
+
+.cart-items-title {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr 0.5fr;
+    align-items: center;
+    color: #555555; /* Neutral grey for title text */
+    font-size: max(1vw, 12px);
+}
+
+.cart-items-item {
+    margin: 10px 0px;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr 0.5fr;
+    align-items: center;
+    color: black;
+    background-color: #E2E2E2;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cart-items-item img {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #CCCCEE; /* Periwinkle for image border */
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.cart-items-item div {
+    max-width: 40px;
+    text-align: center;
+    border: 1px solid #EBEBEB;
+    padding: 8px 8px;
+    font-size: 12px;
+    border-radius: 4px;
+}
+
+.cart-items-remove-icon {
+    cursor: pointer;
+    color: #C31D3E; /* Cardinal for remove icon */
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-bottom {
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+    gap: max(12vw, 20px);
+}
+
+.cart-total {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #FDF4F6; /* Snow for the total card */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cart-total-details {
+    display: flex;
+    justify-content: space-between;
+    color: #555555;
+}
+
+.cart-total hr {
+    margin: 10px 0px;
+}
+
+.cart-total button {
+    border: none;
+    color: white;
+    background-color: #375AAA; /* Sapphire for checkout button */
+    width: max(15vw, 200px);
+    padding: 12px 0px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cart-total button:hover {
+    background-color: #2C2480; /* Resolution blue on hover */
+}
+
+@media (max-width: 750px) {
+    .cart-bottom {
+        flex-direction: column-reverse;
+    }
+
+    .cart-total {
+        justify-content: start;
+    }
+}
