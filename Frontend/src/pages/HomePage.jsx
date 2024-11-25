@@ -1,75 +1,20 @@
-import ItemCard from '../components/ItemCard.jsx';
-// import pavilionImage from '../assets/pavilion.png'
-// import Alien from '../assets/alien.png';
-import Omen from '../assets/omen.png';
-import banner from '../assets/banner.png'
-import React from "react";
+import React, {useContext, useState} from 'react';
+import Header from '../components/Header.jsx';
+import OptionMenu from "../components/OptionMenu.jsx";
+import ItemDisplay from "../components/ItemDisplay.jsx";
+import {StoreContext} from "../context/StoreContext.jsx";
 
-export default function HomePage() {
+const HomePage = () => {
+    const [category, setCategory] = useState("All");
+    const { productList } = useContext(StoreContext);
+
     return (
-        <div className="p-4">
-            <div className="bg-cover h-60 rounded-md mb-4 ml-40 mr-40"
-                 style={{backgroundImage: `url(${banner})`}}>
-                <div className="text-white text-center p-6">
-                    <h1 className="text-2xl font-bold">Preloved Treasures, New Beginnings</h1>
-                    <p>Discover high-quality, gently used items...</p>
-                </div>
-            </div>
-            <div className="flex gap-4 ml-40">
-                <button className="bg-gradient-to-r from-resolutionBlue to-sapphire px-4 py-2 text-white rounded-md">Items</button>
-                <button className="bg-gradient-to-r from-claret to-cardinal px-4 py-2 text-white rounded-md">Foods</button>
-            </div>
-            <div className="mt-10 m-40 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                {/* Render item cards */}
-                <ItemCard
-                    title="OMEN Gaming Laptop 16 2023"
-                    condition="Lightly used"
-                    price="Rp20.000.000,00"
-                    image={Omen}
-                />
-                <ItemCard
-                    title="HP Pavilion Gaming 15"
-                    condition="Lightly used"
-                    price="Rp20.000.000,00"
-                    image={Omen}
-                />
-                <ItemCard
-                    title="Alienware X14 2022 R1"
-                    condition="Rough condition"
-                    price="Rp6.000.000,00"
-                    image={Omen}
-                />
-                <ItemCard
-                    title="HP OMEN 2021 15"
-                    condition="Can hardly open .pka files"
-                    price="0.000068 BTC"
-                    image={Omen}
-                />
-                <ItemCard
-                    title="HP OMEN 2021 15"
-                    condition="Can hardly open .pka files"
-                    price="0.000068 BTC"
-                    image={Omen}
-                />
-                <ItemCard
-                    title="HP OMEN 2021 15"
-                    condition="Can hardly open .pka files"
-                    price="0.000068 BTC"
-                    image={Omen}
-                />
-                <ItemCard
-                    title="HP OMEN 2021 15"
-                    condition="Can hardly open .pka files"
-                    price="0.000068 BTC"
-                    image={Omen}
-                />
-                <ItemCard
-                    title="HP OMEN 2021 15"
-                    condition="Can hardly open .pka files"
-                    price="0.000068 BTC"
-                    image={Omen}
-                />
-            </div>
-        </div>
-    );
+        <>
+            <Header />
+            <OptionMenu setCategory={setCategory} category={category}/>
+            <ItemDisplay category={category} productList={productList}/>
+        </>
+    )
 }
+
+export default HomePage;

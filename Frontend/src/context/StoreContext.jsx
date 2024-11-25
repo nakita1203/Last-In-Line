@@ -1,18 +1,18 @@
-import React, { createContext, useState } from 'react';
+import React, {createContext, useEffect, useState} from 'react';
 import PropTypes from "prop-types";
+import omen from '../assets/omen.png'
+import alien from '../assets/alien.png'
+import { productList, optionList } from "../assets/assets.jsx";
 
 export const StoreContext = createContext(); // No arguments here
 
 const StoreProvider = ({ children }) => {
+    const url = '../assets'
     const [cartItems, setCartItems] = useState({
-        'alienware': 1,
-        'omen': 2,
+        1: 2,
+        2: 1,
+        3: 1,
     });
-
-    const productList = [
-        { id: 'alienware', name: 'Alienware X14 2022 R1', price: 6000000, image: '/assets/alien.png' },
-        { id: 'omen', name: 'HP Omen 2021 i5', price: 5000000, image: 'assets/omen.png' },
-    ];
 
     const removeFromCart = (id) => {
         const newCart = { ...cartItems };
@@ -27,16 +27,15 @@ const StoreProvider = ({ children }) => {
         }, 0);
     };
 
-    const url = '/assets'
-
     return (
         <StoreContext.Provider
             value={{
                 cartItems,
+                optionList,
                 productList,
                 removeFromCart,
                 getTotalCartAmount,
-                url
+                url,
             }}
         >
             {children}

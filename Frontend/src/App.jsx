@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage.jsx";
 import CartPage from "./pages/CartPage.jsx";
 import StoreProvider from "./context/StoreContext.jsx";
+import ProductsDetail from "./pages/ProductDetail.jsx";
 
 function App() {
     return (
@@ -12,6 +13,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/cart" element={<CartPage />} />
+                    <Route path="product/:productId" element={<ProductsDetail />} />
                 </Routes>
             </div>
         </StoreProvider>

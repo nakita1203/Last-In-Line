@@ -8,22 +8,11 @@ const Cart = () => {
         useContext(StoreContext);
     const navigate = useNavigate();
 
-    // Handle master checkbox (select all)
-    const handleSelectAll = (e) => {
-        const checkboxes = document.querySelectorAll(".product-checkbox");
-        checkboxes.forEach((checkbox) => (checkbox.checked = e.target.checked));
-    };
-
     return (
         <div className="cart">
             {/* Cart Items */}
             <div className="cart-items">
                 <div className="cart-items-title">
-                    <input
-                        type="checkbox"
-                        id="selectAll"
-                        onChange={handleSelectAll}
-                    />
                     <p>Items</p>
                     <p>Title</p>
                     <p>Price</p>
@@ -31,14 +20,17 @@ const Cart = () => {
                     <p>Total</p>
                     <p>Remove</p>
                 </div>
-                <hr />
-                {productList.map((item) => {
+                <br/>
+                <hr className="title-line"/>
+                {productList.map((item, index) => {
                     if (cartItems[item.id] > 0) {
                         return (
-                            <div key={item.id} className="cart-items-item">
-                                <div className="cart-items-title">
-                                    <input type="checkbox" className="product-checkbox" />
-                                    <img src={item.image} alt={item.name} />
+                            <div key={index}>
+                                <div className="cart-items-title cart-items-item">
+                                    <img src={item.image}
+                                         alt=""
+                                         style={{ width: "100px", height: "100px" }}
+                                    />
                                     <p>{item.name}</p>
                                     <p>${item.price}</p>
                                     <div>{cartItems[item.id]}</div>
@@ -50,7 +42,9 @@ const Cart = () => {
                                         x
                                     </p>
                                 </div>
-                                <hr />
+                                <div className="cart-items-line">
+                                    <hr/>
+                                </div>
                             </div>
                         );
                     }
@@ -64,7 +58,7 @@ const Cart = () => {
                     <h2>Cart Totals</h2>
                     <div>
                         <div className="cart-total-details">
-                            <p>Subtotal</p>
+                        <p>Subtotal</p>
                             <p>${getTotalCartAmount()}</p>
                         </div>
                         <hr />
