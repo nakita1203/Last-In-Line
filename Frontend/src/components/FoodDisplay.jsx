@@ -1,29 +1,30 @@
 import React, {useContext} from 'react';
 import PropTypes from 'prop-types';
-import './ItemDisplay.css';
-import ProductItem from "./ProductItem.jsx";
+import './FoodDisplay.css';
+import FoodItem from "./FoodItem.jsx";
 import {StoreContext} from "../context/StoreContext.jsx";
-import {optionList} from "../assets/assets.jsx";
 
-const ItemDisplay = ({category}) => {
-    const { productList } = useContext(StoreContext);
+const FoodDisplay = ({category}) => {
+    const { foodList } = useContext(StoreContext);
+    console.log("FoodDisplay rendered with category:", category);
 
-    //Check if prod list is empty
-    if (!productList.length) {
+    if (category !== "Foods") return null;
+
+    //Check if food list is empty
+    if (!foodList.length) {
         return <div>Loading...</div>;
     }
 
     return (
-        <div className="item-display" id='item-display'>
+        <div className="food-display" id='food-display'>
             <div className="option-menu-list">
-                {productList.map((item) => {
+                {foodList.map((item) => {
                     if (category === "All" || category === item.category) {
-                        return <ProductItem
+                        return <FoodItem
                             key={item.id}
                             image={item.image}
                             name={item.name}
                             desc={item.description}
-                            price={item.price}
                             id={item.id}
                         />;
                     }
@@ -34,8 +35,8 @@ const ItemDisplay = ({category}) => {
     );
 };
 
-ItemDisplay.propTypes = {
+FoodDisplay.propTypes = {
     category: PropTypes.string.isRequired,
 };
 
-export default ItemDisplay;
+export default FoodDisplay;

@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage.jsx";
 import CartPage from "./pages/CartPage.jsx";
 import StoreProvider from "./context/StoreContext.jsx";
 import ProductsDetail from "./pages/ProductDetail.jsx";
+import FoodDetail from "./pages/FoodDetail.jsx";
 
 function App() {
     return (
@@ -14,6 +15,7 @@ function App() {
                     <Route path="/" element={<HomePage />} />
                     <Route path="/cart" element={<CartPage />} />
                     <Route path="product/:productId" element={<ProductsDetail />} />
+                    <Route path="foods/:foodId" element={<FoodDetail />} />
                 </Routes>
             </div>
         </StoreProvider>

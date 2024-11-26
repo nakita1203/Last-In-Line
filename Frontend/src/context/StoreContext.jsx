@@ -2,7 +2,7 @@ import React, {createContext, useEffect, useState} from 'react';
 import PropTypes from "prop-types";
 import omen from '../assets/omen.png'
 import alien from '../assets/alien.png'
-import { productList, optionList } from "../assets/assets.jsx";
+import { productList, optionList, foodList } from "../assets/assets.jsx";
 
 export const StoreContext = createContext(); // No arguments here
 
@@ -33,6 +33,7 @@ const StoreProvider = ({ children }) => {
                 cartItems,
                 optionList,
                 productList,
+                foodList,
                 removeFromCart,
                 getTotalCartAmount,
                 url,

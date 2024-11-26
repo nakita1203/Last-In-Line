@@ -10,6 +10,8 @@ import items from './category-items.png'
 import foods from './category-foods.png'
 import add_icon_white from './add_icon_white.png'
 import remove_icon_red from './remove_icon_red.png'
+import onigiri from './onigiri.png'
+import risol from './risol.png'
 
 export const assets = {
     logo,
@@ -53,5 +55,21 @@ export const optionList = [
     },{
     option_name: "Foods",
     image: foods
+    }
+]
+
+export const foodList = [
+    {
+        id: "1",
+        name: "Onigiri",
+        image: onigiri,
+        description: "Half off starting 18.00",
+        category: "Foods"
+    },{
+        id: "2",
+        name: "Risol",
+        image: risol,
+        description: "Half off starting 18.00",
+        category: "Foods"
     }
 ]

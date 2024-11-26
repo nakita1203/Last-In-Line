@@ -15,23 +15,19 @@ const OptionMenu = ({ category, setCategory }) => {
     }
 
     return (
-        <div className="option-menu" id='option-menu'>
-            <h1>What are you looking for?</h1>
-            <p className='option-menu-text'>
-                fuck around and find out
-            </p>
+        <div className="option-menu">
             <div className="option-menu-list">
-                {optionList.map((option, index) => (
+                {optionList.map((option) => (
                     <div
-                        onClick={() => setCategory((prev) => (prev === option.option_name ? 'All' : option.option_name))}
-                        key={index}
-                        className='option-menu-list-item'>
-                        <img src={option.image} className={category === option.option_name ? 'active' : ''} alt={option.option_name} />
+                        key={option.option_name}
+                        className={`option-menu-list-item ${category === option.option_name ? "active" : ""}`}
+                        onClick={() => setCategory(option.option_name)} // Update category
+                    >
+                        <img src={option.image} alt={option.option_name} />
                         <p>{option.option_name}</p>
                     </div>
                 ))}
             </div>
-            <hr />
         </div>
     );
 };

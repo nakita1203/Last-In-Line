@@ -5,9 +5,10 @@
     background-size:cover;
     position: relative;
     display: flex;  /* Using flex to align child elements */
-    justify-content: center;  /* Centers child elements horizontally */
-    align-items: center;
-    width: 80%;
+    /*justify-content: center;  !* Centers child elements horizontally *!*/
+    /*align-items: center;*/
+    width: 90%;
+    height: 60vh;
 }
 .header-contents{
     position: absolute;

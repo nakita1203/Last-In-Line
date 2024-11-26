@@ -9,20 +9,22 @@ const ProductDetail = () => {
     const [product, setProduct] = useState(null);
 
     useEffect(() => {
-        // Find the product based on the productId from URL
-        const foundProduct = productList.find(item => item.id === parseInt(productId));
-        setProduct(foundProduct);
+        if (productList && productList.length > 0) {
+            // Find the product based on the productId from URL
+            const foundProduct = productList.find(item => item.id === productId);
+            setProduct(foundProduct);
+        }
     }, [productId, productList]);
 
     if (!product) {
-        return <div>Loading...</div>; // Show loading until the product is found
+        return <div>{productList.length ? "Product not found" : "Loading..."}</div>;
     }
 
     return (
         <div className="product-detail-page">
             <div className="product-detail-container">
                 <img
-                    src={require(`../assets/${product.image}`)} // Assuming image is in assets folder
+                    src={product.image} // Use the correct image path
                     alt={product.name}
                     className="product-detail-image"
                 />

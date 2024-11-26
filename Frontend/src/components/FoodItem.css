@@ -1,4 +1,4 @@
-.product-item {
+.food-item {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -14,15 +14,15 @@
     transition: transform 0.2s ease;
 }
 
-.product-item:hover {
+.food-item:hover {
     transform: scale(1.02);
 }
 
-.product-item-img-container {
+.food-item-img-container {
     position: relative;
 }
 
-.product-item-img-container .add {
+.food-item-img-container .add {
     position: absolute;
     bottom: 10px;
     right: 10px;
@@ -31,7 +31,7 @@
     cursor: pointer;
 }
 
-.product-item-img-container .add:hover {
+.food-item-img-container .add:hover {
     border: 2px solid #375AAA; /* Sapphire for hover effect */
     width: 200px;
     height: 200px;
@@ -39,14 +39,14 @@
     overflow: hidden;
 }
 
-.product-item-image {
+.food-item-image {
     width: 100%;
     height: 150px; /* Fixed height */
     object-fit: cover; /* Ensures the image fills the container without distortion */
     border-radius: 10px;
 }
 
-.product-item-counter {
+.food-item-counter {
     position: absolute;
     bottom: 10px;
     right: 10px;
@@ -55,16 +55,16 @@
     gap: 10px;
 }
 
-.product-item-counter img {
+.food-item-counter img {
     width: 30px;
 }
 
-.product-item-info {
+.food-item-info {
     text-align: center; /* Center-align text */
     padding: 10px; /* Space between items */
 }
 
-.product-item-name {
+.food-item-name {
     /*font-size: 20px;*/
     /*font-weight: 500;*/
     /*margin-bottom: 10px;*/
@@ -73,7 +73,7 @@
     font-weight: bold;
 }
 
-.product-item-desc {
+.food-item-desc {
     /*font-size: 14px;*/
     /*color: #676767;*/
     /*text-align: center;*/
@@ -83,7 +83,7 @@
     color: #676767;
 }
 
-.product-item-price {
+.food-item-price {
     /*color: #C31D3E; !* Cardinal for price text *!*/
     /*font-size: 18px;*/
     /*font-weight: 500;*/
@@ -96,16 +96,16 @@
 }
 
 @media (max-width: 768px) { /* For tablets and smaller screens */
-    .product-item {
+    .food-item {
         max-width: 200px; /* Reduce max width */
         height: auto; /* Allow height to adjust naturally */
     }
 
-    .product-item-image {
+    .food-item-image {
         height: 120px; /* Smaller image */
     }
 
-    .product-item-info {
+    .food-item-info {
         padding: 8px; /* Less padding */
     }
 
@@ -116,20 +116,20 @@
 }
 
 @media (max-width: 480px) { /* For mobile screens */
-    .product-item {
+    .food-item {
         max-width: 150px; /* Further reduce size */
         height: auto;
     }
 
-    .product-item-image {
+    .food-item-image {
         height: 100px; /* Smaller image for mobile */
     }
 
-    .product-item-info {
+    .food-item-info {
         padding: 5px; /* Minimal padding */
     }
 
-    /*.product-item, .product-item-image {*/
+    /*.food-item, .food-item-image {*/
     /*    transition: all 0.2s ease-in-out;*/
     /*}*/
 
