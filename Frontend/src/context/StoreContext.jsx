@@ -14,6 +14,11 @@ const StoreProvider = ({ children }) => {
         3: 1,
     });
 
+    const [user, setUser] = useState({
+        name: 'hachiware',
+        username: 'hachiwareeee',
+    })
+
     const removeFromCart = (id) => {
         const newCart = { ...cartItems };
         delete newCart[id];
@@ -37,6 +42,7 @@ const StoreProvider = ({ children }) => {
                 removeFromCart,
                 getTotalCartAmount,
                 url,
+                user,
             }}
         >
             {children}

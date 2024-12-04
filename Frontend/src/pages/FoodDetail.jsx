@@ -22,17 +22,22 @@ const FoodDetail = () => {
     }
 
     return (
-        <div className="product-detail-page">
-            <div className="product-detail-container">
-                <img
-                    src={food.image} // Use the correct image path
-                    alt={food.name}
-                    className="product-detail-image"
-                />
-                <div className="product-detail-info">
-                    <h1>{food.name}</h1>
-                    <p>{food.description}</p>
-                    <button>Add to Cart</button> {/* Add to cart functionality here */}
+        <div className="food-detail-page">
+            <div className="food-detail-container">
+                <div className="food-detail-image-container">
+                    <img src={food.image} alt={food.name} className="food-detail-image"/>
+                </div>
+                <div className="food-detail-info">
+                    <div>
+                        <h1 className="food-name">{food.name}</h1>
+                        <p className="food-price">{food.price}</p>
+                        <div className="food-description-container">
+                            <p className="food-description">{food.description}</p>
+                        </div>
+                    </div>
+                    <div className="food-actions">
+                        <button className="food-button food-button-buy">+ Cart</button>
+                    </div>
                 </div>
             </div>
         </div>

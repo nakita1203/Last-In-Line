@@ -1,16 +1,19 @@
-import {UilUser} from '@iconscout/react-unicons';
-import Logo from '../assets/logo.png'
-import Home from '../assets/home.png'
-import GiveLove from '../assets/give-love.png'
-import ShoppingCart from '../assets/shopping-cart.png'
-import {Link} from "react-router-dom";
+import Logo from '../assets/logo.png';
+import Home from '../assets/home.png';
+import GiveLove from '../assets/give-love.png';
+import ShoppingCart from '../assets/shopping-cart.png';
+import User from '../assets/user.png';
+import { Link } from "react-router-dom";
+import { useState } from "react";
 
 export default function Navbar() {
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
     return (
         <nav className="bg-white shadow-md rounded-full flex items-center justify-between px-10 py-3 w-full relative">
             {/* Left: Logo */}
             <div className="flex items-center">
-                <img src={Logo} alt="LIL Logo" className="h-14 w-auto"/>
+                <img src={Logo} alt="LIL Logo" className="h-14 w-auto" />
             </div>
 
             {/* Center: Icons */}
@@ -27,7 +30,7 @@ export default function Navbar() {
             </div>
 
             {/* Right: Search bar and User Icon */}
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-4 relative">
                 <div className="relative">
                     <input
                         type="text"
@@ -38,9 +41,50 @@ export default function Navbar() {
                         🔍
                     </span>
                 </div>
-                <button className="p-2 rounded-lg hover:bg-gray-300 transition">
-                    <UilUser size="25" />
-                </button>
+
+                {/* User Icon and Dropdown */}
+                <div
+                    className="relative"
+                    onMouseEnter={() => setIsDropdownOpen(true)}
+                    onMouseLeave={() => setIsDropdownOpen(false)}
+                >
+                    <button className="p-2 rounded-lg hover:bg-gray-300 transition">
+                        <img src={User} alt="User" className="h-6 w-6" />
+                    </button>
+
+                    {/* Dropdown Menu */}
+                    {isDropdownOpen && (
+                        <div
+                            className="absolute right-0 mt-2 w-40 bg-white border rounded-lg shadow-lg"
+                            style={{ zIndex: 1000 }} // Ensure it appears over the banner
+                        >
+                            <Link
+                                to="/profile"
+                                className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                            >
+                                Profile
+                            </Link>
+                            <Link
+                                to="/sell-goods"
+                                className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                            >
+                                Sell Goods
+                            </Link>
+                            <Link
+                                to="/sell-foods"
+                                className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                            >
+                                Sell Foods
+                            </Link>
+                            <button
+                                onClick={() => alert('Logging out...')}
+                                className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
+                            >
+                                Logout
+                            </button>
+                        </div>
+                    )}
+                </div>
             </div>
         </nav>
     );

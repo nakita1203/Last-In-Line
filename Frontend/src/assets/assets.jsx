@@ -12,6 +12,7 @@ import add_icon_white from './add_icon_white.png'
 import remove_icon_red from './remove_icon_red.png'
 import onigiri from './onigiri.png'
 import risol from './risol.png'
+import user from './user.png'
 
 export const assets = {
     logo,
@@ -21,6 +22,7 @@ export const assets = {
     shopping_cart,
     add_icon_white,
     remove_icon_red,
+    user,
 }
 
 export const productList = [

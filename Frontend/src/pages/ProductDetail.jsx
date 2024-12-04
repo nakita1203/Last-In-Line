@@ -1,16 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom'; // To access URL params
+import { useParams } from 'react-router-dom';
 import { StoreContext } from '../context/StoreContext.jsx';
-import './ProductDetail.css'; // Assuming you will add styles for the product detail page
+import './ProductDetail.css';
 
 const ProductDetail = () => {
-    const { productList } = useContext(StoreContext); // Get the product list from context
-    const { productId } = useParams(); // Get the product ID from URL
+    const { productList } = useContext(StoreContext);
+    const { productId } = useParams();
     const [product, setProduct] = useState(null);
 
     useEffect(() => {
         if (productList && productList.length > 0) {
-            // Find the product based on the productId from URL
             const foundProduct = productList.find(item => item.id === productId);
             setProduct(foundProduct);
         }
@@ -23,16 +22,21 @@ const ProductDetail = () => {
     return (
         <div className="product-detail-page">
             <div className="product-detail-container">
-                <img
-                    src={product.image} // Use the correct image path
-                    alt={product.name}
-                    className="product-detail-image"
-                />
+                <div className="product-detail-image-container">
+                    <img src={product.image} alt={product.name} className="product-detail-image" />
+                </div>
                 <div className="product-detail-info">
-                    <h1>{product.name}</h1>
-                    <p>{product.description}</p>
-                    <p className="product-detail-price">{product.price}</p>
-                    <button>Add to Cart</button> {/* Add to cart functionality here */}
+                    <div>
+                        <h1 className="product-name">{product.name}</h1>
+                        <p className="product-price">{product.price}</p>
+                        <div className="product-description-container">
+                            <p className="product-description">{product.description}</p>
+                        </div>
+                    </div>
+                    <div className="product-actions">
+                        <button className="product-button product-button-buy">Buy</button>
+                        <button className="product-button product-button-cart">+ Cart</button>
+                    </div>
                 </div>
             </div>
         </div>
