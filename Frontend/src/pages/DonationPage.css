@@ -1,0 +1,136 @@
+/* DonationPage.css */
+.header {
+    background-color: #CCCCEE;
+    padding: 1rem 1.5rem;
+}
+
+.header-content {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-title {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #2C2480;
+}
+
+.header-search {
+    display: flex;
+    align-items: center;
+}
+
+.header-search input {
+    padding: 0.5rem 1rem;
+    border: 1px solid #DDDEE8;
+    border-radius: 0.25rem;
+    outline: none;
+    focus-visible: #2E3A99;
+}
+
+.header-search button {
+    margin-left: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #2E3A99;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.header-search button:hover {
+    background-color: #2C2480;
+}
+
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+    max-width: 1280px;
+    margin: 2rem auto;
+}
+
+.product-card {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+
+.product-details {
+    padding: 1rem;
+}
+
+.product-name {
+    font-weight: bold;
+    color: #2C2480;
+}
+
+.product-donator {
+    color: #555555;
+}
+
+.product-status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.product-status-text {
+    color: #555555;
+}
+
+.product-status-label {
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-weight: medium;
+}
+
+.product-status-label.donated {
+    background-color: #DDDEE8;
+    color: #2C2480;
+}
+
+.product-status-label.waiting-list {
+    background-color: #EAD5DD;
+    color: #760532;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.pagination button {
+    padding: 0.5rem 1rem;
+    background-color: #DDDEE8;
+    color: #2C2480;
+    border: none;
+    border-radius: 0.25rem;
+    margin: 0 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.pagination button:hover {
+    background-color: #CCCCEE;
+}
+
+.pagination button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination button.active {
+    background-color: #CCCCEE;
+}

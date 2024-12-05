@@ -1,8 +1,6 @@
 import React, {createContext, useEffect, useState} from 'react';
 import PropTypes from "prop-types";
-import omen from '../assets/omen.png'
-import alien from '../assets/alien.png'
-import { productList, optionList, foodList } from "../assets/assets.jsx";
+import { productList, optionList, foodList, donationList } from "../assets/assets.jsx";
 
 export const StoreContext = createContext(); // No arguments here
 
@@ -17,7 +15,7 @@ const StoreProvider = ({ children }) => {
     const [user, setUser] = useState({
         name: 'hachiware',
         username: 'hachiwareeee',
-    })
+    });
 
     const removeFromCart = (id) => {
         const newCart = { ...cartItems };
@@ -39,6 +37,7 @@ const StoreProvider = ({ children }) => {
                 optionList,
                 productList,
                 foodList,
+                donationList,
                 removeFromCart,
                 getTotalCartAmount,
                 url,

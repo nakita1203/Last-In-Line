@@ -9,6 +9,8 @@ import ProfilePage from "./pages/ProfilePage.jsx";
 import ProductDetail from "./pages/ProductDetail.jsx";
 import SellGoodsPage from "./pages/SellGoodsPage.jsx";
 import SellFoodPage from "./pages/SellFoodPage.jsx";
+import DonationPage from "./pages/DonationPage.jsx";
+import DonationForm from "./pages/DonationForm.jsx";
 
 function App() {
 
@@ -26,6 +28,8 @@ function App() {
                     <Route path="foods/:foodId" element={<FoodDetail />} />
                     <Route path="/sell/goods" element={<SellGoodsPage />} />
                     <Route path="/sell/food" element={<SellFoodPage />} />
+                    <Route path="/donate" element={<DonationPage />} />
+                    <Route path="/donate/add" element={<DonationForm />} />
                 </Routes>
             </div>
         </StoreProvider>

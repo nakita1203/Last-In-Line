@@ -1,13 +1,35 @@
-import Logo from '../assets/logo.png';
-import Home from '../assets/home.png';
-import GiveLove from '../assets/give-love.png';
-import ShoppingCart from '../assets/shopping-cart.png';
-import User from '../assets/user.png';
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import Logo from "../assets/logo.png";
+import Home from "../assets/home.png";
+import GiveLove from "../assets/give-love.png";
+import ShoppingCart from "../assets/shopping-cart.png";
+import User from "../assets/user.png";
 
 export default function Navbar() {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [isUserIconClicked, setIsUserIconClicked] = useState(false);
+
+    // Handle mouse events for dropdown
+    const handleMouseEnter = () => {
+        if (!isUserIconClicked) {
+            setIsDropdownOpen(true);
+        }
+    };
+
+    const handleMouseLeave = () => {
+        if (!isUserIconClicked) {
+            setIsDropdownOpen(false);
+        }
+    };
+
+    // Handle user icon click to navigate to the profile page
+    const handleUserClick = () => {
+        setIsUserIconClicked(true);
+        // Navigate to the profile page
+        // Optionally use useNavigate hook here for navigation instead of Link
+        window.location.href = "/profile"; // Simple redirect (or use navigate)
+    };
 
     return (
         <nav className="bg-white shadow-md rounded-full flex items-center justify-between px-10 py-3 w-full relative">
@@ -21,9 +43,9 @@ export default function Navbar() {
                 <Link to={"/"} className="p-2 rounded-lg hover:bg-gray-300 transition">
                     <img src={Home} alt="Home" className="h-6 w-6" />
                 </Link>
-                <button className="p-2 rounded-lg hover:bg-gray-300 transition">
+                <Link to={"/donate"} className="p-2 rounded-lg hover:bg-gray-300 transition">
                     <img src={GiveLove} alt="Donation" className="h-7 w-7" />
-                </button>
+                </Link>
                 <Link to={"/cart"} className="p-2 rounded-lg hover:bg-gray-300 transition">
                     <img src={ShoppingCart} alt="Shopping Cart" className="h-6 w-6" />
                 </Link>
@@ -45,15 +67,18 @@ export default function Navbar() {
                 {/* User Icon and Dropdown */}
                 <div
                     className="relative"
-                    onMouseEnter={() => setIsDropdownOpen(true)}
-                    onMouseLeave={() => setIsDropdownOpen(false)}
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
                 >
-                    <button className="p-2 rounded-lg hover:bg-gray-300 transition">
+                    <button
+                        className="p-2 rounded-lg hover:bg-gray-300 transition"
+                        onClick={handleUserClick} // Trigger onClick for profile navigation
+                    >
                         <img src={User} alt="User" className="h-6 w-6" />
                     </button>
 
                     {/* Dropdown Menu */}
-                    {isDropdownOpen && (
+                    {isDropdownOpen && !isUserIconClicked && (
                         <div
                             className="absolute right-0 mt-2 w-40 bg-white border rounded-lg shadow-lg"
                             style={{ zIndex: 1000 }} // Ensure it appears over the banner
@@ -76,8 +101,14 @@ export default function Navbar() {
                             >
                                 Sell Foods
                             </Link>
+                            <Link
+                                to="/donate/add"
+                                className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                            >
+                                Donate
+                            </Link>
                             <button
-                                onClick={() => alert('Logging out...')}
+                                onClick={() => alert("Logging out...")}
                                 className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
                             >
                                 Logout

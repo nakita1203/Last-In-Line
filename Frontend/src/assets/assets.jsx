@@ -13,6 +13,7 @@ import remove_icon_red from './remove_icon_red.png'
 import onigiri from './onigiri.png'
 import risol from './risol.png'
 import user from './user.png'
+import upload from './upload.png'
 
 export const assets = {
     logo,
@@ -23,6 +24,7 @@ export const assets = {
     add_icon_white,
     remove_icon_red,
     user,
+    upload,
 }
 
 export const productList = [
@@ -73,5 +75,51 @@ export const foodList = [
         image: risol,
         description: "Half off starting 18.00",
         category: "Foods"
+    }
+]
+
+export const donationList = [
+    {
+        id: "1",
+        name: "Omen",
+        image: omen,
+        donator: "Anonymous BeavER",
+        status: "Waiting List",
+    },{
+        id: "2",
+        name: "Omen",
+        image: omen,
+        donator: "Anonymous BeavER",
+        status: "Waiting List",
+    },{
+        id: "3",
+        name: "Omen",
+        image: omen,
+        donator: "Anonymous BeavER",
+        status: "Waiting List",
+    },{
+        id: "4",
+        name: "Omen",
+        image: omen,
+        donator: "Anonymous BeavER",
+        status: "Waiting List",
+    },{
+        id: "5",
+        name: "Omen",
+        image: omen,
+        donator: "Anonymous BeavER",
+        status: "Waiting List",
+    },{
+        id: "6",
+        name: "Omen",
+        image: omen,
+        donator: "Anonymous BeavER",
+        status: "Waiting List",
+    },{
+        id: "7",
+        name: "Omen",
+        image: omen,
+        donator: "Anonymous BeavER",
+        status: "Waiting List",
     }
 ]

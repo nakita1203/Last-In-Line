@@ -33,6 +33,10 @@ const ProfilePage = () => {
                     <Link to="/sell/food">
                         <button className="profile-button sell-food-button">Sell Food</button>
                     </Link>
+                    {/* Add Donate Button */}
+                    <Link to="/donate/add">
+                        <button className="profile-button donate-button">Donate Here</button>
+                    </Link>
                 </div>
             </div>
         </div>

@@ -23,7 +23,7 @@
 .profile-welcome {
     font-size: 2rem;
     font-weight: 600;
-    color: #375AAA;  /* sapphire for heading */
+    color: #375AAA; /* sapphire for heading */
 }
 
 .profile-username {
@@ -37,9 +37,11 @@
     gap: 1rem;
 }
 
+/* Uniform Button Styles */
 .profile-button {
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
+    padding: 1rem; /* Consistent padding for all buttons */
+    font-size: 1.2rem; /* Make font size the same for all buttons */
+    width: 100%; /* Make buttons span the entire width */
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -47,33 +49,47 @@
     transition: transform 0.2s, background-color 0.2s;
 }
 
+/* Uniform Hover Effects */
 .profile-button:hover {
     transform: scale(1.05); /* Adds a slight zoom effect on hover */
 }
 
+/* Logout Button */
 .logout-button {
-    background-color: #C31D3E;  /* cardinal for logout */
+    background-color: #C31D3E; /* cardinal for logout */
     color: white;
 }
 
 .logout-button:hover {
-    background-color: #94002F;  /* burgundy for hover */
+    background-color: #94002F; /* burgundy for hover */
 }
 
+/* Sell Goods Button */
 .sell-goods-button {
-    background-color: #375AAA;  /* sapphire for selling goods */
+    background-color: #375AAA; /* sapphire for selling goods */
     color: white;
 }
 
 .sell-goods-button:hover {
-    background-color: #2E3A99;  /* egyptianBlue for hover */
+    background-color: #2E3A99; /* egyptianBlue for hover */
 }
 
+/* Sell Food Button */
 .sell-food-button {
-    background-color: #2ECC71;  /* mint green for sell food */
+    background-color: #2ECC71; /* mint green for sell food */
     color: white;
 }
 
 .sell-food-button:hover {
-    background-color: #1A9B5A;  /* dark mint green for hover */
+    background-color: #1A9B5A; /* dark mint green for hover */
+}
+
+/* Donate Button */
+.donate-button {
+    background-color: #FF8C00; /* orange for donate */
+    color: white;
+}
+
+.donate-button:hover {
+    background-color: #E67E22; /* darker orange for hover */
 }
