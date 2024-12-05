@@ -65,13 +65,13 @@ export default function Navbar() {
                                 Profile
                             </Link>
                             <Link
-                                to="/sell-goods"
+                                to="/sell/goods"
                                 className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                             >
                                 Sell Goods
                             </Link>
                             <Link
-                                to="/sell-foods"
+                                to="/sell/foods"
                                 className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                             >
                                 Sell Foods

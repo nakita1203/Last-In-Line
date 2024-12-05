@@ -1,0 +1,52 @@
+.sell-goods-page {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    background-color: #fdf4f6; /* Snow */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sell-goods-page h1 {
+    color: #2E3A99; /* Egyptian Blue */
+    margin-bottom: 20px;
+}
+
+.sell-goods-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sell-goods-form label {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    font-weight: bold;
+    color: #2C2480; /* Resolution Blue */
+}
+
+.sell-goods-form input,
+.sell-goods-form textarea,
+.sell-goods-form select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.sell-goods-form button {
+    padding: 10px 20px;
+    background-color: #C31D3E; /* Cardinal */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sell-goods-form button:hover {
+    background-color: #94002F; /* Burgundy */
+}
