@@ -9,7 +9,6 @@ dotenv.config();
 
 const saltRounds = 10;
 
-// Login an existing user
 const loginUser = async (req, res) => {
     const { email, password } = req.body;
 

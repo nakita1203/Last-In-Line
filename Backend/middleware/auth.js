@@ -1,5 +1,5 @@
-import {verifyJwt} from "../utils/jwtUtils.js";
-import {validateSession} from "../utils/sessionUtils.js";
+import { verifyJwt } from "../utils/jwtUtils.js";
+import { validateSession } from "../utils/sessionUtils.js";
 
 const authMiddleware = async (req, res, next) => {
     const token = req.headers.authorization?.split(" ")[1];
