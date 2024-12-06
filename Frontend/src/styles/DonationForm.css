@@ -1,0 +1,82 @@
+.donation-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.donation-form {
+    width: 100%;
+    max-width: 500px;
+    max-height: 700px;
+    background-color: #f1f1f1;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.donation-form h1 {
+    text-align: center;
+    color: black;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 10px 0 30px 0;
+}
+
+.donation-form label {
+    display: block;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+}
+
+.donation-form input,
+.donation-form textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.donation-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.upload-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ccc;
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.upload-icon {
+    width: 20px;
+    height: 20px;
+    background-image: url("../assets/upload.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 0.5rem;
+}
+
+.submit-button {
+    display: block;
+    width: 100%;
+    background-color: #c31d3e;
+    color: white;
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #94002f;
+}

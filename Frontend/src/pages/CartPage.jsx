@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import "../styles/CartPage.css";
 import { useNavigate } from "react-router-dom";
 import { StoreContext } from "../context/StoreContext";
+import Navbar from "../components/Navbar.jsx";
 
 const Cart = () => {
     const { cartItems, productList, removeFromCart, getTotalCartAmount } =
@@ -9,6 +10,8 @@ const Cart = () => {
     const navigate = useNavigate();
 
     return (
+        <>
+        <Navbar />
         <div className="cart">
             {/* Cart Items */}
             <div className="cart-items">
@@ -76,6 +79,7 @@ const Cart = () => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 

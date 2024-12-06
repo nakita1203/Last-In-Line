@@ -5,7 +5,7 @@
     align-items: center;
     width: 250px;
     max-width: 250px;
-    height: 400px; /* Fixed height */
+    /*height: 400px; !* Fixed height *!*/
     padding: 15px;
     margin: 0; /* No individual margin to avoid uneven spacing */
     background-color: white;

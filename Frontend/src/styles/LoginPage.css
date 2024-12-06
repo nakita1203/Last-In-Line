@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Montserrat', sans-serif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    min-height: 100%;
+}
+
+.login-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100vh;
+    background-color: #00000090;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(180, 80, 115, 0.66)),
+    url(../assets/login.png);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form {
+    width: 450px;
+    height: 550px;
+    color: #808080;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 20px 25px;
+    border-radius: 8px;
+    font-size: 14px;
+    animation: fadeIn 0.5s;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.back-to-register {
+    position: relative;
+    display: inline-block;
+    margin: 10px 0 0 0;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.2s ease-in-out;
+}
+
+.back-to-register:hover {
+    transform: scale(1.1);
+}
+
+.back-to-register img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+}
+
+.login-form h2 {
+    text-align: center;
+    color: black;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-group label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: black;
+    text-align: left;
+}
+
+.form-group input {
+    outline: none;
+    border: 1px solid #d0d0d0;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.error-message {
+    color: red;
+    font-size: 1rem;
+    text-align: center;
+    margin-top: -15px;
+}
+
+.login-form button {
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    color: white;
+    background-color: #a7293f;
+    font-size: 15px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease;
+}
+
+.login-form button:hover {
+    background-color: #590a20;
+}
+
+.login-form p {
+    color: #000000;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.login-form span {
+    color: #cb1e4d;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.login-form span:hover {
+    color: #410012;
+    transform: scale(0.95);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

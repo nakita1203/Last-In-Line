@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Montserrat', sans-serif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    min-height: 100%;
+}
+
+.donation-header-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.donation-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 70vw;
+    min-height: 40vh;
+    margin: 0 auto;
+    background-position: center;
+    background-size: cover;
+    background-image: url('../assets/donate-banner.png');
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.donation-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.35);
+    z-index: 0.5;
+}
+
+.donation-header-contents {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    animation: fadeIn 2s;
+    bottom: 10%;
+    left: 5%;
+    margin: 0;
+    max-width: 80%;
+}
+
+.donation-header-contents h2 {
+    font-weight: 700;
+    color: #ecedee;
+    font-size: 2.75em;
+    margin: 10px 0 0 10px;
+    line-height: 1.25;
+}
+
+.donation-header-contents p {
+    color: white;
+    font-size: 1em;
+    text-align: justify;
+    margin: 10px 0 0 10px;
+    max-width: 700px;
+}
+
+.donation-header-contents button {
+    border: none;
+    color: #4e5560;
+    font-weight: 500;
+    padding: 10px 30px;
+    margin: 10px 0 20px 10px;
+    background: white;
+    font-size: 1em;
+    border-radius: 50px;
+}
+
+@media (max-width: 1050px) {
+    .donation-header {
+        height: 38vw;
+    }
+    .donation-header-contents {
+        max-width: 55%; /* Slightly narrower on smaller screens */
+    }
+    .donation-header-contents h2 {
+        font-size: max(3.5vw, 18px); /* Adjusted for smaller screens */
+    }
+}
+
+@media (max-width: 750px) {
+    .donation-header-contents {
+        max-width: 65%; /* Narrower on very small screens */
+    }
+    .donation-header-contents h2 {
+        font-size: max(3vw, 16px); /* Smaller font size for mobile */
+    }
+    .donation-header-contents p {
+        display: none;
+    }
+    .donation-header-contents button {
+        padding: 2vw 4vw;
+    }
+}

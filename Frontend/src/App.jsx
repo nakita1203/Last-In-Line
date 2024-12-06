@@ -9,6 +9,10 @@ import ProfilePage from "./pages/ProfilePage.jsx";
 import ProductDetail from "./pages/ProductDetail.jsx";
 import SellGoodsPage from "./pages/SellGoodsPage.jsx";
 import SellFoodPage from "./pages/SellFoodPage.jsx";
+import DonationPage from "./pages/DonationPage.jsx";
+import DonationForm from "./pages/DonationForm.jsx";
+import LoginPage from "./pages/LoginPage.jsx";
+import RegisterPage from "./pages/RegisterPage.jsx";
 
 function App() {
 
@@ -16,18 +20,23 @@ function App() {
 
     return (
         <StoreProvider>
-            <Navbar />
-            <div className="mt-16">
+            {/*<Navbar />*/}
+            {/*<div className="mt-16">*/}
                 <Routes>
                     <Route path="/" element={<HomePage />} />
+                    <Route path="/home" element={<HomePage />} />
                     <Route path="/profile" element={<ProfilePage user={user} />} />
+                    <Route path="/register" element={<RegisterPage />} />
+                    <Route path="/login" element={<LoginPage />} />
                     <Route path="/cart" element={<CartPage />} />
                     <Route path="product/:productId" element={<ProductsDetail />} />
                     <Route path="foods/:foodId" element={<FoodDetail />} />
                     <Route path="/sell/goods" element={<SellGoodsPage />} />
                     <Route path="/sell/food" element={<SellFoodPage />} />
+                    <Route path="/donate" element={<DonationPage />} />
+                    <Route path="/donate/add" element={<DonationForm />} />
                 </Routes>
-            </div>
+            {/*</div>*/}
         </StoreProvider>
     );
 }

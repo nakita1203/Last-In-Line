@@ -4,6 +4,7 @@ import OptionMenu from "../components/OptionMenu.jsx";
 import ItemDisplay from "../components/ItemDisplay.jsx";
 import FoodDisplay from "../components/FoodDisplay.jsx";
 import HeaderWithMenu from "../components/HeaderWithMenu.jsx";
+import Navbar from "../components/Navbar.jsx";
 import {StoreContext} from "../context/StoreContext.jsx";
 
 const HomePage = () => {
@@ -13,6 +14,7 @@ const HomePage = () => {
 
     return (
         <>
+            <Navbar />
             {/*<Header />*/}
             {/*<OptionMenu setCategory={setCategory} category={category}/>*/}
             <HeaderWithMenu category={category} setCategory={setCategory} />

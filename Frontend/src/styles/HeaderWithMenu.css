@@ -66,6 +66,7 @@ html, body {
     color: #ecedee;
     font-size: 2.75em;
     margin: 10px 0 0 50px;
+    line-height: 1.25;
 }
 
 .header-contents p {

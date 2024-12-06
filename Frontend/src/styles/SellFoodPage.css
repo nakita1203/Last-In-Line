@@ -1,0 +1,52 @@
+.sell-food-page {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    background-color: #f1dfE4; /* Lavender Blush */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sell-food-page h1 {
+    color: #760532; /* Claret */
+    margin-bottom: 20px;
+}
+
+.sell-food-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sell-food-form label {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    font-weight: bold;
+    color: #3A1769; /* Persian Indigo */
+}
+
+.sell-food-form input,
+.sell-food-form textarea,
+.sell-food-form select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.sell-food-form button {
+    padding: 10px 20px;
+    background-color: #C31D3E; /* Cardinal */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sell-food-form button:hover {
+    background-color: #94002F; /* Burgundy */
+}
