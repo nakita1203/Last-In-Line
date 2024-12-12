@@ -12,13 +12,12 @@ import SellFoodPage from "./pages/SellFoodPage.jsx";
 import DonationPage from "./pages/DonationPage.jsx";
 import DonationForm from "./pages/DonationForm.jsx";
 import AdminLogin from "./pages/Admin/AdminLoginPage.jsx";
+import AdminRegister from "./pages/Admin/AdminRegister.jsx";
 
 function App() {
 
     const user = { name: 'hachiware', username: 'hachiwareeee' }; // Mock user data
-
-    const noNavbarRoutes = ["/admin"];
-    const showNavbar = !noNavbarRoutes.includes(location.pathname);
+    const showNavbar = !location.pathname.includes("admin");
 
     return (
         <StoreProvider>
@@ -35,6 +34,7 @@ function App() {
                     <Route path="/donate" element={<DonationPage />} />
                     <Route path="/donate/add" element={<DonationForm />} />
                     <Route path="/admin" element={<AdminLogin />} />
+                    <Route path="/admin/register" element={<AdminRegister />} />
                 </Routes>
             </div>
         </StoreProvider>
