@@ -1,10 +1,16 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+// import { StrictMode } from 'react'
+// import { createRoot } from 'react-dom/client'
+import React from 'react';
 import './index.css'
-import Dashboard from './pages/dashboard.jsx'
+import App from './App.jsx'
+import {BrowserRouter} from 'react-router-dom';
+import StoreProvider from './context/StoreContext';
+import ReactDom from 'react-dom/client';
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <Dashboard />
-  </StrictMode>,
-)
+ReactDom.createRoot(document.getElementById('root')).render(
+    <BrowserRouter>
+        <StoreProvider>
+            <App />
+        </StoreProvider>
+    </BrowserRouter>
+);

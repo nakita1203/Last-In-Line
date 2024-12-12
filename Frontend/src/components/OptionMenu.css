@@ -1,0 +1,87 @@
+.option-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1200px; /* Set the same max-width as the banner and item cards */
+    margin: 0 auto; /* Center the whole container horizontally */
+    padding: 0 20px; /* Ensure alignment matches the padding of other sections */
+    box-sizing: border-box;
+}
+
+.option-menu-list {
+    display: flex;
+    justify-content: flex-start; /* Align buttons to the left */
+    gap: 20px; /* Space between buttons */
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.option-menu-list-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the image and text */
+    cursor: pointer;
+}
+
+.option-menu-list-item img {
+    width: 140px; /* Default button width */
+    height: 50px; /* Default button height */
+    object-fit: contain; /* Ensure the image fits without distortion */
+    border-radius: 10px; /* Rounded edges for buttons */
+    transition: transform 0.2s ease-in-out; /* Smooth hover effect */
+}
+
+.option-menu-list-item img.active {
+    border: 3px solid #375AAA; /* Highlight active button with a border */
+    transform: scale(1.1); /* Slightly enlarge the active button */
+}
+
+.option-menu-list-item img:hover {
+    transform: scale(1.05); /* Add subtle zoom-in on hover */
+}
+
+.option-menu-list-item p {
+    margin-top: 10px;
+    color: #3A1769;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.option-menu hr {
+    margin: 10px 0;
+    height: 2px;
+    background-color: #E9E8EC;
+    border: none;
+}
+
+@media (max-width: 768px) {
+    .option-menu-list-item img {
+        width: 100px; /* Smaller buttons */
+        height: 40px;
+    }
+
+    .option-menu-list-item p {
+        font-size: 14px;
+    }
+
+    .option-menu-list {
+        gap: 15px; /* Reduce spacing between buttons */
+    }
+}
+
+@media (max-width: 480px) {
+    .option-menu-list-item img {
+        width: 80px; /* Further reduce button size */
+        height: 30px;
+    }
+
+    .option-menu-list-item p {
+        font-size: 12px;
+    }
+
+    .option-menu-list {
+        gap: 10px; /* Compact spacing for very small screens */
+    }
+}

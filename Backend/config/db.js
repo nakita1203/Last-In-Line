@@ -1,11 +1,12 @@
 import mongoose from "mongoose";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 export const connectDB = async () => {
     try {
-        await mongoose.connect(
-            'mongodb+srv://arifatalya:5hgJjI6nS7qRzPL0@server.fybnr.mongodb.net/?retryWrites=true&w=majority&appName=Server'
-        );
-        console.log("Database Connected");
+        await mongoose.connect(process.env.MONGODB_URI);
+        console.log("Successfully connected to MongoDB");
     } catch (error) {
         if (error.message.code === 'ETIMEDOUT') {
             console.error('Error: MongoDB connection timed out. Please check your internet connection or database server.');
@@ -16,6 +17,6 @@ export const connectDB = async () => {
         } else {
             console.error('Error connecting to the database:', error.message);
         }
-        process.exit(1); // Exit the process with a failure code
+        process.exit(1);
     }
-};
+}

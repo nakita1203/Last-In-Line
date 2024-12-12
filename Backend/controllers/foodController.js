@@ -3,7 +3,6 @@ import fs from 'fs';
 import * as console from 'node:console';
 import mongoose from 'mongoose';
 
-// List all foods
 const foodList = async (req, res) => {
     try {
         const foods = await foodModel.find({});
@@ -15,9 +14,8 @@ const foodList = async (req, res) => {
         console.log(error);
         res.json({ success: false, message: "Error" });
     }
-}
+};
 
-// Add a new food
 const foodAdd = async (req, res) => {
     if (!req.file) {
         return res.status(400).json({ success: false, message: "Image file is required" });
@@ -34,18 +32,16 @@ const foodAdd = async (req, res) => {
     });
 
     try {
-        const savedFood = await food.save();
-        res.json({ success: true, message: "Successfully added", food_id: savedFood._id });
+        await food.save();
+        res.json({ success: true, message: "Successfully added", food_id: food._id });
     } catch (error) {
         console.log(error);
         res.json({ success: false, message: "Error" });
     }
-}
+};
 
-// Delete a food entry
 const foodDelete = async (req, res) => {
     try {
-        // Verifying if the provided food_id is a valid ObjectId
         if (!mongoose.Types.ObjectId.isValid(req.body.food_id)) {
             return res.status(400).json({ success: false, message: "Invalid food_id" });
         }
@@ -65,7 +61,7 @@ const foodDelete = async (req, res) => {
         console.error(error);
         res.status(500).json({ success: false, message: "Error" });
     }
-}
+};
 
 export {
     foodList,

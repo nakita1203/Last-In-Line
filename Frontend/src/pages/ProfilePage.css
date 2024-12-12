@@ -1,0 +1,95 @@
+.profile-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #E9E8EC; /* Soft light gray background */
+    font-family: Arial, sans-serif;
+}
+
+.profile-card {
+    background-color: #FFFFFF;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 400px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.profile-header {
+    margin-bottom: 2rem;
+}
+
+.profile-welcome {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #375AAA; /* sapphire for heading */
+}
+
+.profile-username {
+    font-size: 1.25rem;
+    color: #747474;
+}
+
+.profile-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Uniform Button Styles */
+.profile-button {
+    padding: 1rem; /* Consistent padding for all buttons */
+    font-size: 1.2rem; /* Make font size the same for all buttons */
+    width: 100%; /* Make buttons span the entire width */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+/* Uniform Hover Effects */
+.profile-button:hover {
+    transform: scale(1.05); /* Adds a slight zoom effect on hover */
+}
+
+/* Logout Button */
+.logout-button {
+    background-color: #C31D3E; /* cardinal for logout */
+    color: white;
+}
+
+.logout-button:hover {
+    background-color: #94002F; /* burgundy for hover */
+}
+
+/* Sell Goods Button */
+.sell-goods-button {
+    background-color: #375AAA; /* sapphire for selling goods */
+    color: white;
+}
+
+.sell-goods-button:hover {
+    background-color: #2E3A99; /* egyptianBlue for hover */
+}
+
+/* Sell Food Button */
+.sell-food-button {
+    background-color: #2ECC71; /* mint green for sell food */
+    color: white;
+}
+
+.sell-food-button:hover {
+    background-color: #1A9B5A; /* dark mint green for hover */
+}
+
+/* Donate Button */
+.donate-button {
+    background-color: #FF8C00; /* orange for donate */
+    color: white;
+}
+
+.donate-button:hover {
+    background-color: #E67E22; /* darker orange for hover */
+}
