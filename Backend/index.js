@@ -5,6 +5,8 @@ import userRouter from "./routes/userRoute.js";
 import foodRouter from "./routes/foodRoute.js";
 import adminRouter from "./routes/adminRoute.js";
 import orderRouter from "./routes/orderRoute.js";
+import donationRouter from "./routes/donationRoute.js";
+import itemRouter from "./routes/itemRoute.js";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 
@@ -27,6 +29,8 @@ app.use("/user", userRouter);
 app.use("/food", foodRouter);
 app.use("/admin", adminRouter);
 app.use("/order", orderRouter);
+app.use("/donation", donationRouter);
+app.use("/item", itemRouter);
 app.use("/images",express.static('uploads'));
 
 app.get("/", (req, res) => {

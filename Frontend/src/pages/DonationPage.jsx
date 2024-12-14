@@ -9,6 +9,7 @@ import Laptop from '../assets/laptop.jpg';
 import Toys from '../assets/toys.jpg';
 import CannedFoods from '../assets/canned-food.jpg';
 import StudyDesk from '../assets/study-desk.jpg';
+import Jacket from '../assets/jaket-mini.png';
 
 const DonationPage = () => {
     const donationList = [
@@ -57,10 +58,18 @@ const DonationPage = () => {
             donator: "Sho Tenkubashi",
             status: "Donated",
         },
+        {
+            id: 6,
+            name: "Preloved The Goods Dept Jacket",
+            description: "Gently used",
+            image: Jacket,
+            donator: "Naki Ta RD",
+            status: "Waiting List",
+        }
     ];
 
     const [currentPage, setCurrentPage] = useState(1);
-    const productsPerPage = 4;
+    const productsPerPage = 5;
 
     const indexOfLastProduct = currentPage * productsPerPage;
     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
