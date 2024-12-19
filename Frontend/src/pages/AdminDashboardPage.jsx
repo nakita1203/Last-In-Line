@@ -10,7 +10,7 @@ const AdminDashboardPage = () => {
     useEffect(() => {
         const fetchFoods = async () => {
             try {
-                const response = await apiClient.get("/item/list-items");
+                const response = await apiClient.get("/items/list-items");
                 console.log(response);
                 setFoods(response.data.data);
             } catch (err) {

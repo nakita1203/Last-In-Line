@@ -5,14 +5,14 @@ import mongoose from 'mongoose';
 
 const foodList = async (req, res) => {
     try {
-        const foods = await foodModel.find({});
-        res.json({
-            success: true,
-            data: foods
-        });
+        const food = await foodModel.findById(req.params.id);
+        if (!food) {
+            return res.status(404).json({ success: false, message: "Food not found" });
+        }
+        res.json({ success: true, data: food });
     } catch (error) {
-        console.log(error);
-        res.json({ success: false, message: "Error" });
+        console.error("Error fetching food detail:", error);
+        res.status(500).json({ success: false, message: "Error fetching food detail" });
     }
 };
 
@@ -34,9 +34,10 @@ const foodAdd = async (req, res) => {
     try {
         await food.save();
         res.json({ success: true, message: "Successfully added", food_id: food._id });
+        console.log("Food Added Successfully: ", food);
     } catch (error) {
-        console.log(error);
-        res.json({ success: false, message: "Error" });
+        console.error("Error adding food:", error);
+        res.json({ success: false, message: "Error adding food" });
     }
 };
 

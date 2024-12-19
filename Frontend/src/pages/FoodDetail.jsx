@@ -11,8 +11,11 @@ const FoodDetail = (foodParam) => {
 
     useEffect(() => {
         if (foodParam) {
+            if (!foodParam.foodParam.image.startsWith('http')) {
+                foodParam.foodParam.image = "http://localhost:4000/" + foodParam.foodParam.image;
+            }
             setFood(foodParam.foodParam);
-            console.log(foodParam);
+            console.log(foodParam.foodParam);
         }
         else {
             if (foodList && foodList.length > 0) {
