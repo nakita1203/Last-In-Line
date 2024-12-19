@@ -29,8 +29,8 @@ app.use("/user", userRouter);
 app.use("/food", foodRouter);
 app.use("/admin", adminRouter);
 app.use("/order", orderRouter);
-app.use("/donation", donationRouter);
-app.use("/item", itemRouter);
+app.use("/donations", donationRouter);
+app.use("/items", itemRouter);
 app.use("/images",express.static('uploads'));
 
 app.get("/", (req, res) => {
