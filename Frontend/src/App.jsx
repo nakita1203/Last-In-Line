@@ -16,6 +16,7 @@ import RegisterPage from "./pages/RegisterPage.jsx";
 import AdminLoginPage from "./pages/AdminLoginPage.jsx";
 import AdminRegisterPage from "./pages/AdminRegisterPage.jsx";
 import AdminDashboard from "./pages/AdminDashboardPage.jsx";
+import AdminAddFood from "./pages/AddFoodPage.jsx";
 
 function App() {
 
@@ -41,6 +42,7 @@ function App() {
                     <Route path="/admin/login" element={<AdminLoginPage />} />
                     <Route path="/admin/register" element={<AdminRegisterPage />} />
                     <Route path="/admin/list" element={<AdminDashboard />} />
+                    <Route path="/admin/api/add-food" element={<AdminAddFood />} />
                 </Routes>
             {/*</div>*/}
         </StoreProvider>
