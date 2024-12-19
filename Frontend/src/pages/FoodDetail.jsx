@@ -4,16 +4,22 @@ import { StoreContext } from '../context/StoreContext.jsx';
 import '../styles/FoodDetail.css';
 import foodItem from "../components/FoodItem.jsx";
 
-const FoodDetail = () => {
+const FoodDetail = (foodParam) => {
     const { foodList } = useContext(StoreContext); // Get the food list from context
     const { foodId } = useParams(); // Get the food ID from URL
-    const [food, setFood ] = useState(null);
+    const [food, setFood] = useState(null);
 
     useEffect(() => {
-        if (foodList && foodList.length > 0) {
-            // Find the food based on the foodId from URL
-            const foundFood = foodList.find(food => food.id === foodId);
-            setFood(foundFood);
+        if (foodParam) {
+            setFood(foodParam.foodParam);
+            console.log(foodParam);
+        }
+        else {
+            if (foodList && foodList.length > 0) {
+                // Find the food based on the foodId from URL
+                const foundFood = foodList.find(food => food.id === foodId);
+                setFood(foundFood);
+            }
         }
     }, [foodId, foodList]);
 
@@ -25,7 +31,7 @@ const FoodDetail = () => {
         <div className="food-detail-page">
             <div className="food-detail-container">
                 <div className="food-detail-image-container">
-                    <img src={food.image} alt={food.name} className="food-detail-image"/>
+                    <img src={food.image} alt={food.name} className="food-detail-image" />
                 </div>
                 <div className="food-detail-info">
                     <div>

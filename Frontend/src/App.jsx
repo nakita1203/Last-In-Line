@@ -13,6 +13,9 @@ import DonationPage from "./pages/DonationPage.jsx";
 import DonationForm from "./pages/DonationForm.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import RegisterPage from "./pages/RegisterPage.jsx";
+import AdminLoginPage from "./pages/AdminLoginPage.jsx";
+import AdminRegisterPage from "./pages/AdminRegisterPage.jsx";
+import AdminDashboard from "./pages/AdminDashboardPage.jsx";
 
 function App() {
 
@@ -35,6 +38,9 @@ function App() {
                     <Route path="/sell/food" element={<SellFoodPage />} />
                     <Route path="/donate" element={<DonationPage />} />
                     <Route path="/donate/add" element={<DonationForm />} />
+                    <Route path="/admin/login" element={<AdminLoginPage />} />
+                    <Route path="/admin/register" element={<AdminRegisterPage />} />
+                    <Route path="/admin/list" element={<AdminDashboard />} />
                 </Routes>
             {/*</div>*/}
         </StoreProvider>
