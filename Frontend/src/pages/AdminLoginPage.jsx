@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
 const AdminLoginPage = () => {
     const [email, setEmail] = useState("");
@@ -17,14 +18,14 @@ const AdminLoginPage = () => {
         }
 
         try {
-            const response = await axios.post("/admin/login", { email, password });
+            const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/admin/login`, { email, password });
             const { token } = response.data;
 
             // Save the token to localStorage or cookies
-            localStorage.setItem("adminToken", token);
+            Cookies.set("adminToken", token);
 
             // Redirect to the admin list page
-            navigate("/admin/list");
+            navigate("/admin/dashboard");
         } catch (err) {
             setError(err.response?.data?.message || "Error during login.");
         }

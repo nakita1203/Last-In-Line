@@ -19,11 +19,13 @@ const AdminRegisterPage = () => {
         }
 
         try {
-            const response = await axios.post("/admin/register", { name, email, password });
+            const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/admin/register`, { name, email, password }); // Adjust URL as needed
+            console.log("Register response:", response.data); // Debug response
             setSuccess(true);
             setError("");
-            setTimeout(() => navigate("/admin/login"), 2000); // Redirect after 2 seconds
+            setTimeout(() => navigate("/admin"), 2000); // Redirect to login page
         } catch (err) {
+            console.error("Registration error:", err.response || err);
             setError(err.response?.data?.message || "Error during registration.");
         }
     };

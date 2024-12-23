@@ -2,6 +2,8 @@ import { verifyJwt } from "../utils/jwtUtils.js";
 import { validateSession } from "../utils/sessionUtils.js";
 
 const authMiddleware = async (req, res, next) => {
+    console.log(req.headers.authorization);
+
     const token = req.headers.authorization?.split(" ")[1];
     const sessionId = req.cookies.sessionId;
 

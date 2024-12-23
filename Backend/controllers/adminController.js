@@ -64,6 +64,7 @@ const adminLogin = async (req, res) => {
 
         const token = jwt.sign({ id: admin._id, role: "admin" }, secretKey, { expiresIn: "2h" });
 
+        res.cookie("adminToken", token, { httpOnly: true });
         res.json({ success: true, message: "Logged in successfully", token });
     } catch (error) {
         console.error("Error during admin login:", error);
@@ -72,8 +73,8 @@ const adminLogin = async (req, res) => {
 };
 
 const verifyAdmin = (req, res, next) => {
-    const token = req.headers.authorization?.split(" ")[1];
-
+    const token = req.headers.cookie.split("=")[1];
+    
     if (!token) {
         return res.status(401).json({ success: false, message: "Unauthorized" });
     }

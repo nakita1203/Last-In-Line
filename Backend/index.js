@@ -20,6 +20,7 @@ const corsOptions = {
 };
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cors(corsOptions));
 app.use(cookieParser());
 
@@ -31,7 +32,7 @@ app.use("/admin", adminRouter);
 app.use("/order", orderRouter);
 app.use("/donations", donationRouter);
 app.use("/items", itemRouter);
-app.use("/images",express.static('uploads'));
+app.use("/images", express.static('uploads'));
 
 app.get("/", (req, res) => {
     res.send("API Working")

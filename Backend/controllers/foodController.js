@@ -5,7 +5,7 @@ import mongoose from 'mongoose';
 
 const foodList = async (req, res) => {
     try {
-        const food = await foodModel.findById(req.params.id);
+        const food = await foodModel.find();
         if (!food) {
             return res.status(404).json({ success: false, message: "Food not found" });
         }

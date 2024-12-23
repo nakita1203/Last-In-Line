@@ -14,7 +14,7 @@ const AdminDashboardPage = () => {
     useEffect(() => {
         const fetchFoods = async () => {
             try {
-                const response = await apiClient.get("/items/list-items");
+                const response = await apiClient.get(`${import.meta.env.VITE_BASE_URL}/admin/list`);
                 setFoods(response.data.data);
             } catch (err) {
                 console.error("Fetch foods error:", err);
@@ -33,12 +33,26 @@ const AdminDashboardPage = () => {
 
     // Confirm deletion
     const handleDeleteConfirm = async () => {
+        if (!selectedFood) {
+            alert("No food selected for deletion.");
+            return;
+        }
+
         try {
-            await apiClient.delete(`/items/delete-item/${selectedFood._id}`);
-            setFoods((prevFoods) =>
-                prevFoods.filter((food) => food._id !== selectedFood._id)
+            // Pass food_id in the request body (using food_id from selectedFood)
+            const response = await apiClient.delete(
+                `${import.meta.env.VITE_BASE_URL}/admin/api/delete-food`,
+                { data: { food_id: selectedFood._id } }  // Send food_id in the request body
             );
-            setShowModel(false);
+
+            if (response.data.success) {
+                // Remove the deleted item from local state
+                setFoods((prevFoods) => prevFoods.filter((food) => food._id !== selectedFood._id));
+                setShowModel(false); // Close the modal
+                alert("Item deleted successfully.");
+            } else {
+                alert(response.data.message || "Failed to delete the item.");
+            }
         } catch (err) {
             console.error("Delete error:", err);
             alert("Failed to delete the item. Please try again.");
@@ -80,7 +94,7 @@ const AdminDashboardPage = () => {
                     {foods.map((food) => (
                         <div
                             key={food._id}
-                            className="bg-white rounded-lg shadow-md p-4 text-center"
+                            className="bg-white rounded-lg shadow-md p-4 text-center flex flex-col"
                         >
                             <img
                                 src={"/" + food.image}
@@ -93,9 +107,15 @@ const AdminDashboardPage = () => {
                             <p className="text-sm text-gray-600">
                                 {food.description}
                             </p>
-                            <p className="text-sm text-gray-800 font-bold mt-2">
+
+                            {/* Price Box with Translucent Background */}
+                            <div className="mt-2 p-2 bg-gray-700 bg-opacity-50 text-white text-sm font-bold rounded-md inline-block">
+                                <span>Rp </span>
                                 {food.price}
-                            </p>
+                            </div>
+
+                            <div className="flex-grow"></div> {/* Ensures button stays at the bottom */}
+
                             <button
                                 onClick={() => handleDeleteClick(food)}
                                 className="mt-4 bg-red-500 text-white text-sm py-1 px-4 rounded hover:bg-red-600"
