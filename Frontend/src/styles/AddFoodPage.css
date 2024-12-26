@@ -1,0 +1,49 @@
+.add-food {
+    width: 70%;
+    margin: 50px auto;
+    color: #6d6d6d;
+    font-size: 16px;
+}
+.add-food form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+.add-food p {
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+.add-img-upload img {
+    width: 150px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+.add-price {
+    margin: 10px 0 0 0;
+}
+.add-product-name input,
+.add-product-description textarea,
+.add-category-price select,
+.add-category-price input,
+.add-prod-date input {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+.add-btn {
+    width: 100%;
+    max-width: 120px;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+}
+.add-btn:hover {
+    background-color: #444;
+}

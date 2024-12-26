@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import {assets} from "../assets/assets.jsx";
+import Cookies from "js-cookie";
+import "../styles/AddFoodPage.css";
 
 const AddFoodPage = () => {
     const [newFood, setNewFood] = useState({
         name: "",
         description: "",
         price: "",
-        category: "",
+        category: "Fried Goods",
         prodDate: "",
     });
     const [image, setImage] = useState(null);
@@ -16,131 +19,136 @@ const AddFoodPage = () => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setNewFood({ ...newFood, [name]: value });
+        setNewFood((data) => ({ ...data, [name]: value }));
     };
 
-    const onSubmitHandler = async (e) => {
-        e.preventDefault();
-
-        const formNewFood = new FormData();
-        formNewFood.append("name", newFood.name);
-        formNewFood.append("description", newFood.description);
-        formNewFood.append("price", Number(newFood.price));
-        formNewFood.append("category", newFood.category);
-        formNewFood.append("prodDate", newFood.prodDate);
-        formNewFood.append("image", image);
+    const onSubmitHandler = async (event) => {
+        event.preventDefault();
+        const formData = new FormData();
+        formData.append("name", newFood.name);
+        formData.append("description", newFood.description);
+        formData.append("price", Number(newFood.price));
+        formData.append("category", newFood.category);
+        formData.append("prodDate", newFood.prodDate);
+        formData.append("image", image);
 
         try {
+            const token = Cookies.get("adminToken"); // Use token for authorization
             const response = await axios.post(
                 `${import.meta.env.VITE_BASE_URL}/admin/api/add-food`,
-                formNewFood,
+                formData,
                 {
-                    headers: { "Content-Type": "multipart/form-data" },
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                        Authorization: `Bearer ${token}`,
+                    },
                 }
             );
 
             if (response.data.success) {
-                navigate("/admin/dashboard"); // Redirect to dashboard on success
+                alert(response.data.message);
+                setNewFood({
+                    name: "",
+                    description: "",
+                    price: "",
+                    category: "Fried Goods",
+                    prodDate: "",
+                });
+                setImage(null);
+                navigate("/admin/dashboard");
             } else {
-                setError(response.data.message || "Failed to add food. Please try again.");
+                alert(response.data.message);
             }
         } catch (err) {
             console.error("Add food error:", err);
-            setError(err.response?.data?.message || "Failed to add food. Please try again.");
+            alert(err.response?.data?.message || "Failed to add food. Please try again.");
         }
     };
 
     return (
-        <div className="min-h-screen bg-gray-100 p-8 flex justify-center items-center">
-            <div className="bg-white p-6 rounded-lg shadow-md max-w-md w-full">
-                <h3 className="text-lg font-bold mb-4 text-gray-800">Add New Food</h3>
-                {error && <p className="text-red-600 text-sm mb-4">{error}</p>}
-                <form onSubmit={onSubmitHandler}>
-                    <div className="mb-4">
-                        <input
-                            type="text"
-                            name="name"
-                            placeholder="Name"
-                            value={newFood.name}
-                            onChange={handleChange}
-                            className="w-full border rounded px-3 py-2"
-                            required
+        <div className="add-food">
+            <form className="flex-col" onSubmit={onSubmitHandler}>
+                <div className="add-img-upload">
+                    <p>Upload image</p>
+                    <label htmlFor="image">
+                        <img
+                            src={!image ? assets.upload_area : URL.createObjectURL(image)}
+                            alt="Uploaded Preview"
                         />
-                    </div>
-                    <div className="mb-4">
-                        <textarea
-                            name="description"
-                            placeholder="Description"
-                            value={newFood.description}
-                            onChange={handleChange}
-                            className="w-full border rounded px-3 py-2"
-                            required
-                        ></textarea>
-                    </div>
-                    <div className="mb-4">
-                        <input
-                            type="number"
-                            name="price"
-                            placeholder="Price"
-                            value={newFood.price}
-                            onChange={handleChange}
-                            className="w-full border rounded px-3 py-2"
-                            required
-                        />
-                    </div>
-                    <div className="mb-4">
-                        <input
-                            type="file"
-                            onChange={(e) => setImage(e.target.files[0])}
-                            className="w-full"
-                            required
-                        />
-                    </div>
-                    <div className="mb-4">
-                        <input
-                            type="date"
-                            name="prodDate"
-                            placeholder="Production Date"
-                            value={newFood.prodDate}
-                            onChange={handleChange}
-                            className="w-full border rounded px-3 py-2"
-                            required
-                        />
-                    </div>
-                    <div className="mb-4">
+                    </label>
+                    <input
+                        onChange={(e) => setImage(e.target.files[0])}
+                        type="file"
+                        id="image"
+                        hidden
+                        required
+                    />
+                </div>
+                <div className="add-product-name">
+                    <p>Food Name</p>
+                    <input
+                        name="name"
+                        value={newFood.name}
+                        onChange={handleChange}
+                        type="text"
+                        placeholder="Type here"
+                        required
+                    />
+                </div>
+                <div className="add-product-description">
+                    <p>Food Description</p>
+                    <textarea
+                        name="description"
+                        value={newFood.description}
+                        onChange={handleChange}
+                        type="text"
+                        rows={6}
+                        placeholder="Write content here"
+                        required
+                    />
+                </div>
+                <div className="add-category-price">
+                    <div className="add-category">
+                        <p>Food Category</p>
                         <select
                             name="category"
                             value={newFood.category}
                             onChange={handleChange}
-                            className="w-full border rounded px-3 py-2"
-                            required
                         >
-                            <option value="" disabled>
-                                Select Category
-                            </option>
                             <option value="Fried Goods">Fried Goods</option>
                             <option value="Desserts">Desserts</option>
                             <option value="Beverages">Beverages</option>
                             <option value="Snacks">Snacks</option>
+                            <option value="Carbs">Carbs</option>
                         </select>
                     </div>
-                    <div className="flex justify-between">
-                        <button
-                            type="button"
-                            onClick={() => navigate("/admin/dashboard")}
-                            className="bg-gray-300 px-4 py-2 rounded"
-                        >
-                            Cancel
-                        </button>
-                        <button
-                            type="submit"
-                            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-                        >
-                            Add
-                        </button>
+                    <div className="add-price">
+                        <p>Food Price</p>
+                        <input
+                            type="number"
+                            name="price"
+                            value={newFood.price}
+                            onChange={handleChange}
+                            placeholder="25000"
+                            min="0"
+                            required
+                        />
                     </div>
-                </form>
-            </div>
+                </div>
+                <div className="add-prod-date">
+                    <p>Production Date</p>
+                    <input
+                        type="date"
+                        name="prodDate"
+                        value={newFood.prodDate}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+                <button type="submit" className="add-btn">
+                    ADD
+                </button>
+            </form>
         </div>
     );
 };

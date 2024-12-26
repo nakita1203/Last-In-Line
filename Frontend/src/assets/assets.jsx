@@ -13,6 +13,8 @@ import remove_icon_red from './remove_icon_red.png'
 import onigiri from './onigiri.png'
 import risol from './risol.png'
 import user from './user.png'
+import upload_area from './upload_area.png';
+
 
 export const assets = {
     logo,
@@ -23,6 +25,7 @@ export const assets = {
     add_icon_white,
     remove_icon_red,
     user,
+    upload_area
 }
 
 export const productList = [
