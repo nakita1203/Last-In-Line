@@ -97,7 +97,7 @@ const AdminDashboardPage = () => {
                             className="bg-white rounded-lg shadow-md p-4 text-center flex flex-col"
                         >
                             <img
-                                src={"/" + food.image}
+                                src={`/${food.image}`}
                                 alt={food.name}
                                 className="h-32 w-full object-scale-down rounded-lg mb-4"
                             />

@@ -7,6 +7,8 @@ const AddFoodPage = () => {
     const [description, setDescription] = useState("");
     const [price, setPrice] = useState("");
     const [image, setImage] = useState(null);
+    const [prodDate, setProdDate] = useState("");
+    const [category, setCategory] = useState("");
     const [error, setError] = useState("");
     const navigate = useNavigate();
 
@@ -18,12 +20,14 @@ const AddFoodPage = () => {
         formData.append("description", description);
         formData.append("price", price);
         formData.append("image", image);
+        formData.append("prodDate", prodDate);
+        formData.append("category", category);
 
         try {
-            await apiClient.post("/api/add-food", formData, {
+            await apiClient.post(`${import.meta.env.VITE_BASE_URL}/admin/api/add-food`, formData, {
                 headers: { "Content-Type": "multipart/form-data" },
             });
-            navigate("/admin/list"); // Redirect to dashboard after successful addition
+            navigate("/admin/dashboard"); // Redirect to dashboard after successful addition
         } catch (err) {
             console.error("Add food error:", err);
             setError("Failed to add food. Please try again.");
@@ -73,6 +77,26 @@ const AddFoodPage = () => {
                             required
                         />
                     </div>
+                    <div className="mb-4">
+                        <input
+                            type="date"
+                            placeholder="Production Date"
+                            value={prodDate}
+                            onChange={(e) => setProdDate(e.target.value)}
+                            className="w-full border rounded px-3 py-2"
+                            required
+                        />
+                    </div>
+                    <div className="mb-4">
+                        <input
+                            type="text"
+                            placeholder="Category"
+                            value={category}
+                            onChange={(e) => setCategory(e.target.value)}
+                            className="w-full border rounded px-3 py-2"
+                            required
+                        />
+                    </div>
                     <div className="flex justify-between">
                         <button
                             type="button"
@@ -83,7 +107,6 @@ const AddFoodPage = () => {
                         </button>
                         <button
                             type="submit"
-                            onClick={() => navigate("/admin/api/add-food")}
                             className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
                         >
                             Add

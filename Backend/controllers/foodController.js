@@ -50,14 +50,24 @@ const foodDelete = async (req, res) => {
         const food = await foodModel.findByIdAndDelete(req.body.food_id);
 
         if (!food) {
+            console.error("Food not found for deletion:", food_id);
             return res.status(404).json({ success: false, message: "Food entry not found" });
         }
 
-        fs.unlink(`uploads/${food.image}`, (err) => {
-            if (err) console.error(err);
-        });
+        const imagePath = `uploads/${food.image}`;
+        console.log("Attempting to delete image file:", imagePath);
 
-        res.json({ success: true, message: "Successfully deleted" });
+        if (food.image && fs.existsSync(imagePath)) {
+            fs.unlink(imagePath, (err) => {
+                if (err) {
+                    console.error("Error deleting image file:", err);
+                } else {
+                    console.log("Image file deleted successfully:", imagePath);
+                }
+            });
+        }
+
+        res.json({ success: true, message: "Food Successfully deleted" });
     } catch (error) {
         console.error(error);
         res.status(500).json({ success: false, message: "Error" });

@@ -73,10 +73,19 @@ const adminLogin = async (req, res) => {
 };
 
 const verifyAdmin = (req, res, next) => {
-    const token = req.headers.cookie.split("=")[1];
-    
+    let token;
+    if (req.headers.authorization) {
+        token = req.headers.authorization.split(" ")[1];
+    }
+
+    else if (req.headers.cookie) {
+        const cookies = req.headers.cookie.split("; ");
+        const adminTokenCookie = cookies.find((cookie) => cookie.startsWith("adminToken="));
+        token = adminTokenCookie ? adminTokenCookie.split("=")[1] : null;
+    }
+
     if (!token) {
-        return res.status(401).json({ success: false, message: "Unauthorized" });
+        return res.status(401).json({ success: false, message: "Unauthorized: Token not provided" });
     }
 
     try {
@@ -89,8 +98,8 @@ const verifyAdmin = (req, res, next) => {
         req.adminId = decoded.id;
         next();
     } catch (error) {
-        console.error("Authorization error:", error);
-        res.status(401).json({ success: false, message: "Unauthorized" });
+        console.error("Authorization error:", error.message);
+        res.status(401).json({ success: false, message: "Unauthorized: Invalid token" });
     }
 };
 
