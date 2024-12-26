@@ -40,6 +40,7 @@ function App() {
                     <Route path="/donate" element={<DonationPage />} />
                     <Route path="/donate/add" element={<DonationForm />} />
                     <Route path="/admin" element={<AdminLoginPage />} />
+                    <Route path="/admin/login" element={<AdminLoginPage />} />
                     <Route path="/admin/register" element={<AdminRegisterPage />} />
                     <Route path="/admin/dashboard" element={<AdminDashboard />} />
                     <Route path="/admin/api/add-food" element={<AdminAddFood />} />

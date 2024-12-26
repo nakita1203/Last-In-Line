@@ -19,6 +19,10 @@ const upload = multer({ storage: storage });
 adminRouter.post("/register", adminRegister);
 adminRouter.post("/login", adminLogin);
 
+adminRouter.get("/api/verify-token", verifyAdmin, (req, res) => {
+    res.json({ success: true, message: "Admin Token is valid." });
+});
+
 adminRouter.get("/list", foodList);
 adminRouter.post("/api/add-food", verifyAdmin, upload.single("image"), foodAdd);
 adminRouter.delete("/api/delete-food", verifyAdmin, foodDelete);
