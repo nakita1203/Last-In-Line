@@ -4,6 +4,7 @@ import userModel from '../models/userModel.js';
 import bcrypt from 'bcrypt';
 import validator from 'validator';
 import dotenv from 'dotenv';
+import itemModel from "../models/itemModel.js";
 
 dotenv.config();
 
@@ -45,7 +46,7 @@ const loginUser = async (req, res) => {
             maxAge: 30 * 60 * 1000,
         });
         console.log("Generated sessionId:", sessionId);
-        res.json({ success: true, token });
+        res.json({ success: true, token, userId: user._id });
     } catch (error) {
         console.error("Error during login:", error.message);
         res.json({ success: false, message: "Error during login." });
@@ -77,7 +78,7 @@ const registerUser = async (req, res) => {
 
         const token = createJwt(user._id);
 
-        res.json({ success: true, token });
+        res.json({ success: true, token, userId: user._id });
     } catch (error) {
         console.error("Error during registration:", error);
         res.json({ success: false, message: "Error during registration." });
@@ -106,6 +107,32 @@ const logoutUser = async (req, res) => {
     }
 };
 
+const getUserDetails = async (req, res) => {
+    try {
+        const userId = req.body.userId;
+        const user = await userModel.findById(userId);
+        if (!user) {
+            return res.status(404).json({ success: false, message: "User not found." });
+        }
+
+        const items = await itemModel.find({ userId: userId });
+
+        res.json({
+            success: true,
+            user: {
+                userId: user._id,
+                name: user.name,
+                username: user.username,
+                email: user.email,
+            },
+            products: items,
+        });
+    } catch (error) {
+        console.error("Error fetching user details:", error.message);
+        res.status(500).json({ success: false, message: "Error fetching user details." });
+    }
+};
+
 const validateUserSession = async (req, res) => {
     const sessionId = req.cookies.sessionId;
     const token = req.headers.authorization?.split(" ")[1];
@@ -131,5 +158,6 @@ export {
     loginUser,
     registerUser,
     logoutUser,
+    getUserDetails,
     validateUserSession
 };

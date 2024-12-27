@@ -44,7 +44,8 @@ const itemAdd = async (req, res) => {
             description: req.body.description,
             price: req.body.price,
             image: imageFilename,
-            category: req.body.category
+            category: req.body.category,
+            userId: decoded.id,
         });
 
         await item.save();
