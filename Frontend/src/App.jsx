@@ -6,7 +6,6 @@ import StoreProvider from "./context/StoreContext.jsx";
 import ProductsDetail from "./pages/ProductDetail.jsx";
 import FoodDetail from "./pages/FoodDetail.jsx";
 import ProfilePage from "./pages/ProfilePage.jsx";
-import ProductDetail from "./pages/ProductDetail.jsx";
 import SellGoodsPage from "./pages/SellGoodsPage.jsx";
 import SellFoodPage from "./pages/SellFoodPage.jsx";
 import DonationPage from "./pages/DonationPage.jsx";
@@ -19,9 +18,6 @@ import AdminDashboard from "./pages/AdminDashboardPage.jsx";
 import AdminAddFood from "./pages/AddFoodPage.jsx";
 
 function App() {
-
-    const user = { name: 'hachiware', username: 'hachiwareeee' }; // Mock user data
-
     return (
         <StoreProvider>
             {/*<Navbar />*/}
@@ -29,7 +25,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/home" element={<HomePage />} />
-                    <Route path="/profile" element={<ProfilePage user={user} />} />
+                    <Route path="/profile" element={<ProfilePage/>} />
                     <Route path="/register" element={<RegisterPage />} />
                     <Route path="/login" element={<LoginPage />} />
                     <Route path="/cart" element={<CartPage />} />

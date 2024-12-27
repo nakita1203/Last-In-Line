@@ -8,7 +8,7 @@ import BackArrow from "../assets/back-arrow.png";
 
 const RegisterPage = () => {
     const navigate = useNavigate();
-    const url = `${import.meta.env.VITE_API_URL}/user/register`;
+    const url = `${import.meta.env.VITE_BASE_URL}/user/register`;
     const [data, setData] = useState({
         name: "",
         username: "",

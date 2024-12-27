@@ -14,6 +14,10 @@ import onigiri from './onigiri.png'
 import risol from './risol.png'
 import user from './user.png'
 
+const baseUrl = import.meta.env.VITE_BASE_URL;
+
+export const foodListUrl = `${baseUrl}/food.list`;
+
 export const assets = {
     logo,
     banner,

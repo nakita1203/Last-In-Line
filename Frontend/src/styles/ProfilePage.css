@@ -93,3 +93,41 @@
 .donate-button:hover {
     background-color: #E67E22; /* darker orange for hover */
 }
+
+.redirect-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f4f8;
+    font-family: Arial, sans-serif;
+}
+
+.redirect-box {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1.5s ease;
+}
+
+.redirect-title {
+    font-size: 1.8rem;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.redirect-message {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

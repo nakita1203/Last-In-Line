@@ -1,20 +1,43 @@
-import React, { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { StoreContext } from "../context/StoreContext.jsx";
-import '../styles/ProfilePage.css';
+import "../styles/ProfilePage.css";
+import axios from "axios";
+import apiClient from "../utils/axios.js";
 
 const ProfilePage = () => {
-    const { user } = useContext(StoreContext);
+    const { user, setUser } = useContext(StoreContext);
     const navigate = useNavigate();
 
-    const handleLogout = () => {
-        localStorage.removeItem('user'); // Clear user data
-        navigate('/'); // Redirect to home page
+    const handleLogout = async () => {
+        try {
+            await axios.post(`user/api/logout`, {}, { withCredentials: true });
+            setUser(null); // Clear user from context
+            navigate("/login"); // Redirect to login page
+        } catch (error) {
+            console.error("Logout error:", error);
+        }
     };
 
+    useEffect(() => {
+        if (!user) {
+            const timeout = setTimeout(() => {
+                navigate("/login"); // Delay navigation by 2 seconds
+            }, 2000);
+            return () => clearTimeout(timeout); // Cleanup timeout on unmount
+        }
+    }, [user, navigate]);
+
     if (!user) {
-        return <div>Loading...</div>;
-    }
+        return (
+            <div className="redirect-container">
+                <div className="redirect-box">
+                    <h2 className="redirect-title">Redirecting...</h2>
+                    <p className="redirect-message">You will be taken to the Login Page shortly.</p>
+                </div>
+            </div>
+        );
+    }       
 
     return (
         <div className="profile-page">
@@ -33,7 +56,6 @@ const ProfilePage = () => {
                     <Link to="/sell/food">
                         <button className="profile-button sell-food-button">Sell Food</button>
                     </Link>
-                    {/* Add Donate Button */}
                     <Link to="/donate/add">
                         <button className="profile-button donate-button">Donate Here</button>
                     </Link>

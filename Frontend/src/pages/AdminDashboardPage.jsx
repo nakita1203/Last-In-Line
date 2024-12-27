@@ -14,7 +14,7 @@ const AdminDashboardPage = () => {
     useEffect(() => {
         const fetchFoods = async () => {
             try {
-                const response = await apiClient.get(`${import.meta.env.VITE_BASE_URL}/admin/list`);
+                const response = await apiClient.get(`/admin/list`);
                 setFoods(response.data.data);
             } catch (err) {
                 console.error("Fetch foods error:", err);
@@ -41,7 +41,7 @@ const AdminDashboardPage = () => {
         try {
             // Pass food_id in the request body (using food_id from selectedFood)
             const response = await apiClient.delete(
-                `${import.meta.env.VITE_BASE_URL}/admin/api/delete-food`,
+                `/admin/api/delete-food`,
                 { data: { food_id: selectedFood._id } }  // Send food_id in the request body
             );
 

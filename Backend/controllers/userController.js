@@ -127,9 +127,36 @@ const validateUserSession = async (req, res) => {
     }
 }
 
+const getUserDetails = async (req, res) => {
+    try {
+        const userId = req.body.userId;
+        const user = await userModel.findById(userId);
+        if (!user) {
+            return res.status(404).json({ success: false, message: "User not found." });
+        }
+
+        const items = await itemModel.find({ userId: userId });
+
+        res.json({
+            success: true,
+            user: {
+                userId: user._id,
+                name: user.name,
+                username: user.username,
+                email: user.email,
+            },
+            products: items,
+        });
+    } catch (error) {
+        console.error("Error fetching user details:", error.message);
+        res.status(500).json({ success: false, message: "Error fetching user details." });
+    }
+};
+
 export {
     loginUser,
     registerUser,
     logoutUser,
-    validateUserSession
+    validateUserSession,
+    getUserDetails
 };

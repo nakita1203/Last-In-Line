@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import omen from '../assets/omen.png'
 import alien from '../assets/alien.png'
 import { productList, optionList, foodList } from "../assets/assets.jsx";
+import apiClient from "../utils/axios.js"; 
 
 export const StoreContext = createContext(); // No arguments here
 
@@ -14,10 +15,7 @@ const StoreProvider = ({ children }) => {
         3: 1,
     });
 
-    const [user, setUser] = useState({
-        name: 'hachiware',
-        username: 'hachiwareeee',
-    })
+    const [user, setUser] = useState(null); // Start with null user
 
     const removeFromCart = (id) => {
         const newCart = { ...cartItems };
@@ -31,6 +29,25 @@ const StoreProvider = ({ children }) => {
             return total + product.price * quantity;
         }, 0);
     };
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            console.log("Fetching user...");
+            try {
+                const response = await apiClient.get(`/user/api/account`, { withCredentials: true });
+                if (response.data.success) {
+                    setUser(response.data.user); // Save user data from the backend
+                } else {
+                    setUser(null);
+                }
+            } catch (error) {
+                console.error("Error fetching user:", error);
+                setUser(null);
+            }
+        };
+
+        fetchUser(); // Call the function when the component mounts
+    }, []);
 
     return (
         <StoreContext.Provider

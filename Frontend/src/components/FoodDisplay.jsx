@@ -1,35 +1,34 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import '../styles/FoodDisplay.css';
 import FoodItem from "./FoodItem.jsx";
-import {StoreContext} from "../context/StoreContext.jsx";
+import { StoreContext } from "../context/StoreContext.jsx";
 
-const FoodDisplay = ({category}) => {
-    const { foodList } = useContext(StoreContext);
-    console.log("FoodDisplay rendered with category:", category);
+const FoodDisplay = ({ category }) => {
+    const { foodList, loading, error } = useContext(StoreContext);
 
     if (category !== "Foods") return null;
 
-    //Check if food list is empty
-    if (!foodList.length) {
-        return <div>Loading...</div>;
+    if (loading) {
+        return <div>Loading food items...</div>;
+    }
+
+    if (error) {
+        return <div className="text-red-600">{error}</div>;
     }
 
     return (
-        <div className="food-display" id='food-display'>
+        <div className="food-display" id="food-display">
             <div className="option-menu-list">
-                {foodList.map((item) => {
-                    if (category === "All" || category === item.category) {
-                        return <FoodItem
-                            key={item.id}
-                            image={item.image}
-                            name={item.name}
-                            desc={item.description}
-                            id={item.id}
-                        />;
-                    }
-                    return null;
-                })}
+                {foodList.map((item) => (
+                    <FoodItem
+                        key={item.id}
+                        image={item.image}
+                        name={item.name}
+                        desc={item.description}
+                        id={item.id}
+                    />
+                ))}
             </div>
         </div>
     );

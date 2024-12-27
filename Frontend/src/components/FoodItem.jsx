@@ -9,7 +9,7 @@ const FoodItem = ({image, name, desc, id}) => {
     const [itemCount, setItemCount] = useState(0);
 
     return(
-        <Link to={`/foods/${id}`}>
+        <Link to={`${import.meta.env.VITE_BASE_URL}/food/list`}>
             <div className="food-item">
                 <div className="food-item-img-container">
                     <img

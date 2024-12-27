@@ -8,11 +8,12 @@ import BackArrow from "../assets/back-arrow.png";
 
 const LoginPage = () => {
     const navigate = useNavigate();
-    const url = `${import.meta.env.VITE_API_URL}/user/login`;
+    const url = `${import.meta.env.VITE_BASE_URL}/user/login`;
     const [data, setData] = useState({
         email: "",
         password: "",
     });
+    const [user, setUser] = useState(null);
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
 
@@ -20,7 +21,7 @@ const LoginPage = () => {
         const token = localStorage.getItem('token');
         const sessionId = localStorage.getItem('sessionId');
         if (token && sessionId) {
-            axios.get(`${import.meta.env.VITE_API_URL}/user/validate-session`, {
+            axios.get(`${import.meta.env.VITE_BASE_URL}/user/validate-session`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
